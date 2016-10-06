@@ -1,0 +1,365 @@
+html {font-size: 100%}
+html, .b-page {height: 100%}
+
+.b-page {
+	width: 100%;
+	position: relative;
+
+/* 	&::-webkit-scrollbar {width: 0 !important}
+-ms-overflow-style: none;
+overflow: -moz-scrollbars-none; */
+
+	&__header {
+		position: fixed;
+		z-index: 10;
+		height: 0;
+		width: 100%;
+		background-color: $secColor;
+		border-bottom: 1px solid $black;
+		opacity: 0;
+		transition: opacity .3s ease-in, height .3s ease-in;
+
+		&.is-visible {
+			opacity: 1;
+			height: 7.65em;
+			transition: opacity 1s ease-out, height .1s ease-out;
+		}
+	}
+
+	&__footer {
+		width: 100%;
+		height: 7rem;
+		background-color: $secColor;
+
+		p {
+			text-transform: uppercase;
+			text-align: center;
+			font: normal 1.35rem/7rem CirceLight, sans-serif;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.b-header {
+	&__row {
+		padding: 0 14em;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+$bMenu: b-menu;
+.b-menu {
+	&--main {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+		.#{$bMenu} {
+			&__item {display: inline-block}
+
+			&__link {
+				color: $black;
+				text-decoration: none;
+				font: normal 1rem CirceLight, sans-serif;
+				text-transform: uppercase;
+				margin: 1em;
+
+				&:link, &:visited, &:hover, &:active {
+					color: $black;
+					text-decoration: none;
+				}
+				&.is-active, &:hover, &:target {text-decoration: underline}
+
+				&:target {
+					background-color: green;
+				}
+			}
+		}
+	}
+}
+
+.b-contact {
+	&__link {
+		color: #818181;
+		text-decoration: none;
+		font: normal 2.5rem CirceLight, sans-serif;
+
+		&:link, &:visited, &:hover, &:active {
+			text-decoration: none;
+			color: #818181;
+		}
+	}
+}
+
+$bSlide: b-slide;
+.#{$bSlide} {
+	width: 100%;
+	min-height: 100%;
+	background-color: $secColor;
+	position: relative;
+	transition: opacity .5s ease-in;
+
+	&:not(:first-child) {opacity: 0}
+
+	/**
+	* First slide
+	*/
+	&--first {
+		background: url(../img/bg.jpg) top center / cover no-repeat fixed;
+
+		.#{$bSlide} {
+			&__wrapper {
+				min-height: 100%;
+				position: relative;
+				padding: 26.33em 12.75em 15.0875em 14.41em;
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: center;
+				justify-content: center;
+
+				@at-root .#{$bSlide} {
+					&__logo {
+						flex: 1 0 0;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+
+						svg {
+							width: 32.94em;
+							fill: #fff;
+
+							path {
+								fill-rule: evenodd;
+								clip-rule: evenodd;
+							}
+						}
+					}
+
+					&__tagline {
+						flex: 1 0 0;
+						text-transform: uppercase;
+						font: bold 4.55rem/1.055em CirceBold;
+						letter-spacing: -0.5px;
+						color: $secColor;
+						
+						@at-root .#{$bSlide} {
+							&__phone {
+								color: $secColor;
+								font: normal 3.15rem/1.25rem Circe;
+
+								&:link, &:visited, &:hover, &:active {
+									text-decoration: none;
+									color: currentColor;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&__footer {
+				position: relative;
+				margin-top: -6.3125em;
+				height: 6.3125em;
+				text-align: center;
+				
+				@at-root .#{$bSlide} {
+					&__scroll {
+						font-size: 3.2rem;
+						text-transform: uppercase;
+						color: $secColor;
+						cursor: pointer;
+
+						&:link, &:visited, &:hover, &:active {
+							color: $secColor;
+							text-decoration: none;
+						}
+						svg {
+							margin-left: 1rem;
+							fill: $secColor;
+							height: 2.5rem;
+							animation: 2s arrow infinite;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&--second {
+	
+	}
+
+	&--third {
+
+	}
+
+	&--forth {
+
+		@at-root .#{$bSlide} {
+			&__wrapper {
+				padding: 10em 14em;
+			}
+
+			&__footer {
+				text-align: center;
+				height: 10em;
+			}
+		}
+	}
+
+	h2 {
+		font: normal 3.75rem/.95 Circe, sans-serif;
+		text-transform: uppercase;
+		color: #565656;
+		margin: 2rem 0;
+
+		span {display: block}
+	}
+
+	h3 {
+		font: normal 2.5rem CirceLight;
+		text-transform: uppercase;
+	}
+	
+	&__columns {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+
+		.#{$bSlide} {
+			&__item {
+				&--half {
+					width: 45%;
+					margin: 2.5rem 0;
+
+					img { /* will be svg*/
+						width: 3.75em;
+						vertical-align: middle;
+						margin-top: -1rem;
+					}
+
+					hr {
+						border-style: solid;
+						border-width: 2px;
+						border-color: $mainColor;
+						margin: .75em 0 1.75rem;
+					}
+
+					p {
+						font: normal 1rem CirceLight;
+						text-transform: uppercase;
+						color: $black;
+					}
+				}
+				&--activity {
+					h3 {
+						font: normal 1.89rem/2rem Circe, sans-serif;
+						text-transform: uppercase;
+						display: inline;
+						margin-left: 2rem;
+						color: #51beec; /* TODO: multiply blue font */
+					}
+				}
+			}
+		}
+	}
+
+	&:not(:first-child).is-fade {opacity: 1}
+}
+
+.b-tag {
+
+	&--map {height: 42em}
+
+	&__image {
+		width: 100%;
+	}
+}
+
+.b-button {
+	display: inline-block;
+	background-color: $mainColor;
+	color: $secColor;
+	text-transform: uppercase;
+	padding: 1.7rem;
+	font: normal 1.5rem CirceRegular, sans-serif;
+	text-decoration: none;
+	transition: opacity .3s ease;
+
+	&:link, &:visited, &:hover, &:active {
+		color: $secColor;
+		text-decoration: none;
+	}
+	&:hover {opacity: .7}
+}
+
+.b-bar {
+	display: block;
+	border: 1px solid #00a651;
+	height: 1rem;
+	border-radius: 1rem;
+	overflow: hidden;
+
+	&__progress {
+		display: block !important;
+		background-color: $green;
+		height: 100%;
+		border-radius: 1rem;
+		width: 0;
+	}
+
+}
+
+.b-slider {
+	width: 95%;
+	height: 15em;
+	margin: 0 auto;
+	padding-left: 0;
+
+	&__item {width: 27em}
+
+	&__image {
+		max-width: 100%;
+		margin: auto;
+	}
+
+	.slick-arrow {
+		&:before {
+			path: #00f;
+		}
+	}
+}
+
+@keyframes arrow {
+	0%, 100% {transform: translateY(0)}
+	50% {transform: translateY(.25em)}
+}
+
+.is-green {
+	color: $green;
+	font-family: CirceBold, sans-serif;
+}
+
+.b-list{
+	list-style: none;
+	padding-left: 0;
+	& li {
+		font: 400 1rem CirceLight;
+	    color: #000;
+	    text-transform: uppercase;
+
+		&:before{content: "- "}
+	}
+}
+
+.b-logo {
+	&--main {
+		svg {
+			width: 13.25em;
+			margin: 1rem 0;
+		}
+	}
+}

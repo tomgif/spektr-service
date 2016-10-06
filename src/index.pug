@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width")
+		title Спектр
+		link(rel="stylesheet", href="css/main.css")
+	body.b-page
+		header.b-header.b-page__header.js-header
+			.b-header__row
+				.b-logo.b-logo--main
+					include img/logo-main.svg
+				ul.b-menu.b-menu--main
+					li.b-menu__item: a.b-menu__link.js-scroll(href="#about") О нас
+					li.b-menu__item: a.b-menu__link.js-scroll(href="#legal") Юридическим лицам
+					li.b-menu__item: a.b-menu__link.js-scroll(href="#individual") Частным клиентам
+					li.b-menu__item: a.b-menu__link.js-scroll(href="#news") Новости
+					li.b-menu__item: a.b-menu__link.js-scroll(href="#contacts") Контакты
+				.b-contact
+					a.b-contact__link(href="callto:+74954119900") +7 (495) 411-99-00
+			.b-header__row
+		.b-page__wrapper
+			section.b-slide.b-slide--first.js-slide(data-section-name="home")
+				.b-slide__wrapper
+					.b-slide__logo.b-logo
+						include img/logo.svg
+					.b-slide__tagline
+						p Мощь и свобода вашего бизнеса
+						a.b-slide__phone(href="callto:+74954119900") +7 (495) 411-99-00
+				.b-slide__footer
+					a.b-slide__scroll.js-scroll(href="#about") Перейти 
+						include img/arrow-down.svg
+			section.b-slide.b-slide--second.js-slide(data-section-name="about")
+				.b-slide__wrapper
+					h2 О нас
+					.b-slide__columns
+						.b-slide__item.b-slide__item--half
+							h3 Компания
+							p Спектр - инновационный многопрофильный холдинг.<br> Мы помогаем сотням российских и зарубежных компаний успешно развиваться и повышать эффективность бизнеса, используя мощный арсенал аутсорсинга
+							p Уникальность предложения спектр - в концепции &laquo;всё под рукой&raquo; предприятие-клиент поручает нам выполнение всех или наиболее трудоемких вспомогательных функций, концентрируясь на основных направлениях деятельности
+							p Спектр вы получаете:
+								ul.b-list
+									li компетентную поддержку лучших специалистов,
+									li новейшую технологическую базу,
+									li дополнительные ресурсы для достижения самых амбициозных
+						.b-slide__item.b-slide__item--half
+							h3 Наш опыт
+							p
+								span.is-green 500+ 
+								| клиентов: отечественные и зарубежные предприятия крупного, среднего, малого бизнеса целей.
+								span.b-bar
+									span.b-bar__progress.js-bar__progress(style="width: 35%")
+							p
+								span.is-green 4000+ 
+								| сотрудников ОАК ежедневно задействованы в решении клиентских задач
+								span.b-bar
+									span.b-bar__progress.js-bar__progress(style="width: 92%")
+							p
+								span.is-green 700+ 
+								| объектов обслуживания на территории России и стран СНГ
+								span.b-bar
+									span.b-bar__progress.js-bar__progress(style="width: 58%")
+							p
+								span.is-green 300+ 
+								| региональных партнеров и представителей в РФ, Беларуси и Казахстана
+								span.b-bar
+									span.b-bar__progress.js-bar__progress(style="width: 28%")
+							p
+								span.is-green 90% 
+								| Объем ежегодно пролонгируемых контрактов по услугам Спектр
+								span.b-bar
+									span.b-bar__progress.js-bar__progress(style="width: 92%")
+					ul.b-slider.js-slider
+						li.b-slider__item
+							img.b-slider__image(src="img/slider1.jpg", alt="")
+						li.b-slider__item
+							img.b-slider__image(src="img/slider1.jpg", alt="")
+						li.b-slider__item
+							img.b-slider__image(src="img/slider1.jpg", alt="")
+						li.b-slider__item
+							img.b-slider__image(src="img/slider1.jpg", alt="")
+						li.b-slider__item
+							img.b-slider__image(src="img/slider1.jpg", alt="")
+						li.b-slider__item
+							img.b-slider__image(src="img/slider1.jpg", alt="")
+				.b-tag
+					img.b-tag__image(src="img/tag1.jpg", alt="")
+			section.b-slide.b-slide--third.js-slide(data-section-name="legal")
+				.b-slide__wrapper
+					h2 
+						span Услуги
+						| юридическим лицам
+					.b-slide__columns
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s1.png", alt="")
+							h3 Кадровый аутсорсинг
+							hr
+							p Рекрутинг, аутстаффинг и аутсорсинг линейных сотрудников от СПЕКТР позволят вашему предприятию вдвое уменьшить нагрузку на кадровую службу и бухгалтерию и значительно сократить расходы на поиск, привлечение и сопровождение персонала.
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s1.png", alt="")
+							h3 Юридическое сопровождение
+							hr
+							p Оказываем ряд услуг по комплексному юридическому сопровождению, направленных на обеспечение системной безопасности бизнеса.
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s2.png", alt="")
+							h3 Имущественные отношения
+							hr
+							p Текст о имущественных отношениях.
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s3.png", alt="")
+							h3 Маркетинг
+							hr
+							p Мы проводим маркетинговые исследования, разрабатываем Бизнес-планы, консультируем по вопросам стратегического маркетинга и девелопмента.
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s4.png", alt="")
+							h3 Эксплуатация офисов
+							hr
+							p Аутсорсинг административно-хозяйственных функций от СПЕКТР - централизованная поддержка предприятий в вопросах обеспечения уборки объектов, питания сотрудников, снабжения и логистики.
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s4.png", alt="")
+							h3 Информационные технологии
+							hr
+							p Информационно-технический аутсорсинг от СПЕКТР – полная уверенность в бесперебойной работе всех информационных систем вашего предприятия, защищенности и сохранности данных
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s4.png", alt="")
+							h3 Управление недвижимостью
+							hr
+							p СПЕКТР предлагает своим клиентам широкий спектр услуг по доверительному управлению недвижимостью, технической эксплуатации зданий, клинингу и ряду других сопутствующих мероприятий
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s4.png", alt="")
+							h3 Бухгалтерское обслуживание
+							hr
+							p Передача бухгалтерии на аутсорсинг специалистам СПЕКТР поможет сократить затраты на содержание штата внутри компании, обучение персонала и повышении квалификации сотрудников
+				.b-tag
+					img.b-tag__image(src="img/tag2.jpg", alt="")
+			section.b-slide.b-slide--forth.js-slide(data-section-name="individual")
+				.b-slide__wrapper
+					h2 
+						span Услуги
+						| физическим лицам
+					.b-slide__columns
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s1.png", alt="")
+							h3 Имущественные отношения
+							hr
+							p Текст о имущественных отношениях 
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s2.png", alt="")
+							h3 Юридическая поддержка
+							hr
+							p Текст о юридической поддержке
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s3.png", alt="")
+							h3 Управление недвижимостью
+							hr
+							p Текст о управлении недвижимостью
+						.b-slide__item.b-slide__item--half.b-slide__item--activity
+							img(src="img/s4.png", alt="")
+							h3 Строительство и ремонт
+							hr
+							p Текст о строительстве и ремонте
+				.b-slide__footer
+					a.b-button(href="") Заявка на услугу
+				.b-tag
+					img.b-tag__image(src="img/tag3.jpg", alt="")
+			section.b-slide.b-slide--fifth.js-slide(data-section-name="news")
+				.b-slide__wrapper
+					h2 Новости
+					.b-slide__columns
+						.b-slide__item.b-slide__item--half
+							h3 Компания
+							p Спектр - инновационный многопрофильный холдинг.<br> Мы помогаем сотням российских и зарубежных компаний успешно развиваться и повышать эффективность бизнеса, используя мощный арсенал аутсорсинга
+							p Уникальность предложения спектр - в концепции &laquo;всё под рукой&raquo; предприятие-клиент поручает нам выполнение всех или наиболее трудоемких вспомогательных функций, концентрируясь на основных направлениях деятельности
+							p Спектр вы получаете
+							ul
+								li компетентную поддержку лучших специалистов,
+								li новейшую технологическую базу,
+								li дополнительные ресурсы для достижения самых амбициозных
+				.b-tag
+					img.b-tag__image(src="img/tag4.jpg", alt="")
+			section.b-slide.b-slide--sixth.js-slide(data-section-name="contacts")
+				.b-slide__wrapper
+					h2 Контакты
+					.b-slide__columns
+						.b-slide__item.b-slide__item--half
+							h3 Компания
+							p Спектр - инновационный многопрофильный холдинг.<br> Мы помогаем сотням российских и зарубежных компаний успешно развиваться и повышать эффективность бизнеса, используя мощный арсенал аутсорсинга
+							p Уникальность предложения спектр - в концепции &laquo;всё под рукой&raquo; предприятие-клиент поручает нам выполнение всех или наиболее трудоемких вспомогательных функций, концентрируясь на основных направлениях деятельности
+							p Спектр вы получаете
+							ul
+								li компетентную поддержку лучших специалистов,
+								li новейшую технологическую базу,
+								li дополнительные ресурсы для достижения самых амбициозных
+				.b-tag.b-tag--map.js-map
+		footer.b-page__footer
+			p © 2016 | Все права защищены | Спектр
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+		script(src="js/main.js")
+		script(src="http://maps.google.com/maps/api/js?sensor=false&callback=init")
