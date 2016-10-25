@@ -4,10 +4,11 @@ html, .b-page {height: 100%}
 .b-page {
 	width: 100%;
 	position: relative;
+	font-size: 15pt;
 
-/* 	&::-webkit-scrollbar {width: 0 !important}
--ms-overflow-style: none;
-overflow: -moz-scrollbars-none; */
+	&::-webkit-scrollbar {width: 0 !important}
+	-ms-overflow-style: none;
+	/* overflow: -moz-scrollbars-none; */
 
 	&__header {
 		position: fixed;
@@ -21,20 +22,22 @@ overflow: -moz-scrollbars-none; */
 
 		&.is-visible {
 			opacity: 1;
-			height: 7.65em;
-			transition: opacity 1s ease-out, height .1s ease-out;
+			height: 5em;
+			transition: opacity .3s ease-out, height .1s ease-out;
+
+			.b-header__row {display: flex}
 		}
 	}
 
 	&__footer {
 		width: 100%;
-		height: 7rem;
+		height: 5em;
 		background-color: $secColor;
 
 		p {
 			text-transform: uppercase;
 			text-align: center;
-			font: normal 1.35rem/7rem CirceLight, sans-serif;
+			font: normal 1rem/6.25em CirceLight, sans-serif;
 			margin-bottom: 0;
 		}
 	}
@@ -42,10 +45,10 @@ overflow: -moz-scrollbars-none; */
 
 .b-header {
 	&__row {
-		padding: 0 14em;
-		display: flex;
+		padding: 0 11em;
 		align-items: center;
 		justify-content: space-between;
+		display: none;
 	}
 }
 
@@ -57,12 +60,57 @@ $bMenu: b-menu;
 		padding: 0;
 
 		.#{$bMenu} {
-			&__item {display: inline-block}
+			&__sub-menu {
+				height: 1.5em;
+				background-color: $secColor;
+				position: absolute;
+				top: calc(100% + 1px);
+				left: 0;
+				width: 100%;
+				padding: 0 11em;
+				border-bottom: 1px solid $black;
+				overflow: hidden;
+				display: none;
+
+				.#{$bMenu} {
+					
+					&__item {
+						margin: 0;
+						padding: 0;
+
+						&:last-child {
+							.#{$bMenu} {
+								&__link {
+									border-right: 0;
+									margin-right: 0;
+									padding-right: 0;
+								}
+							}
+						}
+					}
+
+					&__link {
+						border-right: 1px solid #8a8a8a;
+						font-size: .65rem;
+						padding-right: 1em;
+						padding-left: 0;
+						margin-right: 1em;
+						margin-left: 0;
+						color: #8a8a8a;
+					}
+				}
+			}
+
+			&__item {
+				display: inline-block;
+				
+				&.is-active > a, &:hover > a{text-decoration: underline}
+			}
 
 			&__link {
 				color: $black;
 				text-decoration: none;
-				font: normal 1rem CirceLight, sans-serif;
+				font: normal .9rem CirceLight, sans-serif;
 				text-transform: uppercase;
 				margin: 1em;
 
@@ -70,13 +118,16 @@ $bMenu: b-menu;
 					color: $black;
 					text-decoration: none;
 				}
-				&.is-active, &:hover, &:target {text-decoration: underline}
-
-				&:target {
-					background-color: green;
-				}
 			}
 		}
+
+/* 		.is-active {
+	.#{$bMenu} {
+		&__sub-menu {
+			display: block;
+		}
+	}
+} */
 	}
 }
 
@@ -93,27 +144,53 @@ $bMenu: b-menu;
 	}
 }
 
+.b-slides {
+	height: 100%;
+}
+
 $bSlide: b-slide;
 .#{$bSlide} {
 	width: 100%;
 	min-height: 100%;
 	background-color: $secColor;
 	position: relative;
-	transition: opacity .5s ease-in;
 
-	&:not(:first-child) {opacity: 0}
+	&:not(:first-child) {
+		.#{$bSlide} {
+			&__wrapper {
+				transform: translateY(1em);
+				transition: opacity .3s ease-in, transform .5s ease-in;
+			}
+		}
+		&.is-fade {
+			.#{$bSlide} {
+				&__wrapper {transform: translateY(0)}
+			}
+		}
+	}
+
+
+	.#{$bSlide} {
+		&__wrapper {padding: 6.5em 11em 4em}
+
+		&__footer {
+			text-align: center;
+			height: 10em;
+		}
+	}
 
 	/**
 	* First slide
 	*/
-	&--first {
+	&--1 {
 		background: url(../img/bg.jpg) top center / cover no-repeat fixed;
+		height: 100%;
 
 		.#{$bSlide} {
 			&__wrapper {
-				min-height: 100%;
 				position: relative;
-				padding: 26.33em 12.75em 15.0875em 14.41em;
+				min-height: 100%;
+				padding: 11em;
 				display: flex;
 				flex-flow: row nowrap;
 				align-items: center;
@@ -127,7 +204,8 @@ $bSlide: b-slide;
 						justify-content: space-between;
 
 						svg {
-							width: 32.94em;
+							width: 26em;
+							margin: auto;
 							fill: #fff;
 
 							path {
@@ -140,14 +218,14 @@ $bSlide: b-slide;
 					&__tagline {
 						flex: 1 0 0;
 						text-transform: uppercase;
-						font: bold 4.55rem/1.055em CirceBold;
+						font: bold 4rem/1.055em CirceBold;
 						letter-spacing: -0.5px;
 						color: $secColor;
 						
 						@at-root .#{$bSlide} {
 							&__phone {
 								color: $secColor;
-								font: normal 3.15rem/1.25rem Circe;
+								font: normal 2.75rem/1.25rem Circe;
 
 								&:link, &:visited, &:hover, &:active {
 									text-decoration: none;
@@ -161,13 +239,13 @@ $bSlide: b-slide;
 
 			&__footer {
 				position: relative;
-				margin-top: -6.3125em;
-				height: 6.3125em;
+				margin-top: -4em;
+				height: 4em;
 				text-align: center;
 				
 				@at-root .#{$bSlide} {
 					&__scroll {
-						font-size: 3.2rem;
+						font-size: 2.75rem;
 						text-transform: uppercase;
 						color: $secColor;
 						cursor: pointer;
@@ -188,30 +266,27 @@ $bSlide: b-slide;
 		}
 	}
 
-	&--second {
-	
+	&--2 {
+		
 	}
 
-	&--third {
+	&--3 {
 
 	}
 
-	&--forth {
+	&--4 {
 
-		@at-root .#{$bSlide} {
-			&__wrapper {
-				padding: 10em 14em;
-			}
+	}
 
-			&__footer {
-				text-align: center;
-				height: 10em;
-			}
-		}
+	hr {
+		border-style: solid;
+		border-width: 2px;
+		border-color: $mainColor;
+		margin: .5em 0 .85rem;
 	}
 
 	h2 {
-		font: normal 3.75rem/.95 Circe, sans-serif;
+		font: normal 2.75rem/.95 Circe, sans-serif;
 		text-transform: uppercase;
 		color: #565656;
 		margin: 2rem 0;
@@ -220,7 +295,8 @@ $bSlide: b-slide;
 	}
 
 	h3 {
-		font: normal 2.5rem CirceLight;
+		font: normal 2rem CirceLight;
+		margin: 1rem 0;
 		text-transform: uppercase;
 	}
 	
@@ -231,32 +307,33 @@ $bSlide: b-slide;
 
 		.#{$bSlide} {
 			&__item {
-				&--half {
-					width: 45%;
-					margin: 2.5rem 0;
+				margin-bottom: 3em;
 
-					img { /* will be svg*/
-						width: 3.75em;
+				&--half {
+					margin: 0;
+					width: 45%;
+
+					&.a-fade {opacity: 0}
+
+					svg {
+						fill: #fff;
+						background-color: #0fa6e5;
+						width: 3em;
 						vertical-align: middle;
 						margin-top: -1rem;
 					}
 
-					hr {
-						border-style: solid;
-						border-width: 2px;
-						border-color: $mainColor;
-						margin: .75em 0 1.75rem;
-					}
 
 					p {
-						font: normal 1rem CirceLight;
+						font: normal .85rem CirceLight;
 						text-transform: uppercase;
 						color: $black;
 					}
 				}
 				&--activity {
+					margin: 2em 0;
 					h3 {
-						font: normal 1.89rem/2rem Circe, sans-serif;
+						font: normal 1.65rem/2rem Circe, sans-serif;
 						text-transform: uppercase;
 						display: inline;
 						margin-left: 2rem;
@@ -267,25 +344,66 @@ $bSlide: b-slide;
 		}
 	}
 
-	&:not(:first-child).is-fade {opacity: 1}
+	.a-left {
+		transform: translateX(1em);
+		transition: transform 1s ease-in;
+	}
+
+
+	&.is-fade {
+		.a-left {transform: translateX(0)}
+	
+		.a-fade {
+			animation: fadeIn ease-in 1;
+			animation-fill-mode: forwards;
+			animation-duration: .5s;
+		}
+
+		@for $i from 1 through 8 {
+			$sec: ($i * 0.3) + s;
+			.a-fade:nth-child(#{$i}) {
+				animation-delay: $sec
+			}
+		}
+	}
 }
 
 .b-tag {
+	position: relative;
+	text-align: center;
+	height: 23em;
+	width: 100%;
 
-	&--map {height: 42em}
+	&--map {height: 30em}
 
-	&__image {
-		width: 100%;
+	p {
+		padding: 0 3.5em;
+		font: normal 4.5rem Circe, sans-serif;
+		color: #fff;
+		text-transform: uppercase;
+		position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
 	}
+
+	&:before, &:after {
+		content: "";
+		display: table;
+	}
+	&:after {clear: both}
 }
 
 .b-button {
 	display: inline-block;
+	border: 0;
+	cursor: pointer;
 	background-color: $mainColor;
 	color: $secColor;
 	text-transform: uppercase;
-	padding: 1.7rem;
-	font: normal 1.5rem CirceRegular, sans-serif;
+	padding: 1em 3.25em;
+	font: normal 1.35rem CirceRegular, sans-serif;
 	text-decoration: none;
 	transition: opacity .3s ease;
 
@@ -315,21 +433,15 @@ $bSlide: b-slide;
 
 .b-slider {
 	width: 95%;
-	height: 15em;
-	margin: 0 auto;
+	height: 11em;
+	margin: 2em auto 0;
 	padding-left: 0;
 
-	&__item {width: 27em}
+	&__item {width: 22em}
 
 	&__image {
 		max-width: 100%;
 		margin: auto;
-	}
-
-	.slick-arrow {
-		&:before {
-			path: #00f;
-		}
 	}
 }
 
@@ -341,6 +453,12 @@ $bSlide: b-slide;
 .is-green {
 	color: $green;
 	font-family: CirceBold, sans-serif;
+}
+
+.is-blue {
+	color: $mainColor;
+	font-family: CirceLight, sasn-serif;
+	text-transform: uppercase;
 }
 
 .b-list{
@@ -358,8 +476,85 @@ $bSlide: b-slide;
 .b-logo {
 	&--main {
 		svg {
-			width: 13.25em;
-			margin: 1rem 0;
+			display: block;
+			height: 4.2em;
+			margin: .5em 0;
 		}
+	}
+}
+
+.b-form {
+	padding: 2em 0;
+
+	&__input, &__textarea {
+		width: 100%;
+		margin-bottom: 2em;
+		padding: 1em 2em;
+		border: 1px solid $mainColor;
+
+		&:last-child {margin-bottom: 0}
+
+		&::-webkit-input-placeholder {
+		   color: #b7b7b7;
+		   text-transform: uppercase;
+		   text-indent: 0;
+		   transition: opacity 0.3s ease;
+		}
+		&:focus {
+			&::-webkit-input-placeholder {opacity: 0}
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+		   color: #b7b7b7;
+		   text-transform: uppercase;
+		   text-indent: 0;
+		   transition: opacity 0.3s ease;
+		}
+		&:focus {
+			&:-moz-placeholder {opacity: 0}
+		}
+
+		&::-moz-placeholder {  /* Firefox 19+ */
+		   color: #b7b7b7;
+		   text-transform: uppercase;
+		   text-indent: 0;
+		   transition: opacity 0.3s ease;
+		}
+		&:focus {
+			&::-moz-placeholder {opacity: 0} 
+		}
+
+		&:-ms-input-placeholder {  
+		   color: #b7b7b7;
+		   text-transform: uppercase;
+		   text-indent: 0;
+		   transition: opacity 0.3s ease;
+		}
+		&:focus {
+			&:-ms-input-placeholder {opacity: 0}
+		}
+	}
+
+	&__textarea {
+		height: 14.8em;
+		resize: none;
+	}
+
+	.b-form__item {
+		&:last-child {
+			margin-top: 2em;
+			width: 100%;
+		}
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(1em);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }

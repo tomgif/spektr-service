@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="ru")
 	head
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width")
 		title Спектр
 		link(rel="stylesheet", href="css/main.css")
-	body.b-page
+	body.b-page(data-spy="scroll", data-target=".js-nav", data-offset="300")
 		header.b-header.b-page__header.js-header
 			.b-header__row
 				.b-logo.b-logo--main
-					include img/logo-main.svg
-				ul.b-menu.b-menu--main
-					li.b-menu__item: a.b-menu__link.js-scroll(href="#about") О нас
-					li.b-menu__item: a.b-menu__link.js-scroll(href="#legal") Юридическим лицам
-					li.b-menu__item: a.b-menu__link.js-scroll(href="#individual") Частным клиентам
-					li.b-menu__item: a.b-menu__link.js-scroll(href="#news") Новости
-					li.b-menu__item: a.b-menu__link.js-scroll(href="#contacts") Контакты
+					a(href="#home")
+						include img/logo-main.svg
+				nav.js-nav
+					ul.b-menu.b-menu--main.js-spy
+						li.b-menu__item: a.b-menu__link(href="#home")
+						li.b-menu__item: a.b-menu__link(href="#about") О нас
+						li.b-menu__item.js-menu__item
+							a.b-menu__link(href="#legal") Юридическим лицам
+							ul.b-menu__sub-menu.js-sub-menu
+								li.b-menu__item: a.b-menu__link(href="") Кадровый аутсорсинг
+								li.b-menu__item: a.b-menu__link(href="") Имущественные отношения
+								li.b-menu__item: a.b-menu__link(href="") Эксплуатация офисов
+								li.b-menu__item: a.b-menu__link(href="") Управление недвижимостью
+								li.b-menu__item: a.b-menu__link(href="") Юридическое сопровождение
+								li.b-menu__item: a.b-menu__link(href="") Маркетинг
+								li.b-menu__item: a.b-menu__link(href="") Информационные технологии
+								li.b-menu__item: a.b-menu__link(href="") Бухгалтерия
+						li.b-menu__item.js-menu__item
+							a.b-menu__link(href="#individual") Частным клиентам
+							ul.b-menu__sub-menu.js-sub-menu
+								li.b-menu__item: a.b-menu__link(href="") Имущественные отношения
+								li.b-menu__item: a.b-menu__link(href="") Управление недвижимостью
+								li.b-menu__item: a.b-menu__link(href="") Юридическая поддержка
+								li.b-menu__item: a.b-menu__link(href="") Строительство и ремонт
+								li.b-menu__item: a.b-menu__link(href="") Юридическое сопровождение
+								li.b-menu__item: a.b-menu__link(href="") Маркетинг
+								li.b-menu__item: a.b-menu__link(href="") Информационные технологии
+								li.b-menu__item: a.b-menu__link(href="") Бухгалтерия
+						li.b-menu__item: a.b-menu__link(href="#news") Новости
+						li.b-menu__item: a.b-menu__link(href="#contacts") Контакты
 				.b-contact
 					a.b-contact__link(href="callto:+74954119900") +7 (495) 411-99-00
 			.b-header__row
-		.b-page__wrapper
-			section.b-slide.b-slide--first.js-slide(data-section-name="home")
+		.b-slides
+			section.b-slide.b-slide--1.js-slide#home
 				.b-slide__wrapper
 					.b-slide__logo.b-logo
 						include img/logo.svg
@@ -28,9 +51,9 @@ html(lang="en")
 						p Мощь и свобода вашего бизнеса
 						a.b-slide__phone(href="callto:+74954119900") +7 (495) 411-99-00
 				.b-slide__footer
-					a.b-slide__scroll.js-scroll(href="#about") Перейти 
+					a.b-slide__scroll(href="#about") Перейти 
 						include img/arrow-down.svg
-			section.b-slide.b-slide--second.js-slide(data-section-name="about")
+			section.b-slide.b-slide--2.js-slide#about
 				.b-slide__wrapper
 					h2 О нас
 					.b-slide__columns
@@ -43,7 +66,7 @@ html(lang="en")
 									li компетентную поддержку лучших специалистов,
 									li новейшую технологическую базу,
 									li дополнительные ресурсы для достижения самых амбициозных
-						.b-slide__item.b-slide__item--half
+						.b-slide__item.b-slide__item--half.a-left
 							h3 Наш опыт
 							p
 								span.is-green 500+ 
@@ -71,129 +94,145 @@ html(lang="en")
 								span.b-bar
 									span.b-bar__progress.js-bar__progress(style="width: 92%")
 					ul.b-slider.js-slider
-						li.b-slider__item
+						li.b-slider__item: a.js-modal(href="img/slider1.jpg")
 							img.b-slider__image(src="img/slider1.jpg", alt="")
-						li.b-slider__item
+						li.b-slider__item: a.js-modal(href="img/slider1.jpg")
 							img.b-slider__image(src="img/slider1.jpg", alt="")
-						li.b-slider__item
+						li.b-slider__item: a.js-modal(href="img/slider1.jpg")
 							img.b-slider__image(src="img/slider1.jpg", alt="")
-						li.b-slider__item
+						li.b-slider__item: a.js-modal(href="img/slider1.jpg")
 							img.b-slider__image(src="img/slider1.jpg", alt="")
-						li.b-slider__item
+						li.b-slider__item: a.js-modal(href="img/slider1.jpg")
 							img.b-slider__image(src="img/slider1.jpg", alt="")
-						li.b-slider__item
+						li.b-slider__item: a.js-modal(href="img/slider1.jpg")
 							img.b-slider__image(src="img/slider1.jpg", alt="")
-				.b-tag
-					img.b-tag__image(src="img/tag1.jpg", alt="")
-			section.b-slide.b-slide--third.js-slide(data-section-name="legal")
+			.b-tag(data-parallax="scroll", data-image-src="img/tag1.jpg")
+				p Экономьте ресурсы и время
+			section.b-slide.b-slide--3.js-slide#legal
 				.b-slide__wrapper
 					h2 
 						span Услуги
 						| юридическим лицам
 					.b-slide__columns
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s1.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l1.svg
 							h3 Кадровый аутсорсинг
 							hr
 							p Рекрутинг, аутстаффинг и аутсорсинг линейных сотрудников от СПЕКТР позволят вашему предприятию вдвое уменьшить нагрузку на кадровую службу и бухгалтерию и значительно сократить расходы на поиск, привлечение и сопровождение персонала.
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s1.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l2.svg
 							h3 Юридическое сопровождение
 							hr
 							p Оказываем ряд услуг по комплексному юридическому сопровождению, направленных на обеспечение системной безопасности бизнеса.
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s2.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l3.svg
 							h3 Имущественные отношения
 							hr
 							p Текст о имущественных отношениях.
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s3.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l4.svg
 							h3 Маркетинг
 							hr
 							p Мы проводим маркетинговые исследования, разрабатываем Бизнес-планы, консультируем по вопросам стратегического маркетинга и девелопмента.
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s4.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l5.svg
 							h3 Эксплуатация офисов
 							hr
 							p Аутсорсинг административно-хозяйственных функций от СПЕКТР - централизованная поддержка предприятий в вопросах обеспечения уборки объектов, питания сотрудников, снабжения и логистики.
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s4.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l6.svg
 							h3 Информационные технологии
 							hr
 							p Информационно-технический аутсорсинг от СПЕКТР – полная уверенность в бесперебойной работе всех информационных систем вашего предприятия, защищенности и сохранности данных
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s4.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l7.svg
 							h3 Управление недвижимостью
 							hr
 							p СПЕКТР предлагает своим клиентам широкий спектр услуг по доверительному управлению недвижимостью, технической эксплуатации зданий, клинингу и ряду других сопутствующих мероприятий
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s4.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l8.svg
 							h3 Бухгалтерское обслуживание
 							hr
 							p Передача бухгалтерии на аутсорсинг специалистам СПЕКТР поможет сократить затраты на содержание штата внутри компании, обучение персонала и повышении квалификации сотрудников
-				.b-tag
-					img.b-tag__image(src="img/tag2.jpg", alt="")
-			section.b-slide.b-slide--forth.js-slide(data-section-name="individual")
+				.b-slide__footer
+					a.b-button(href="") Заявка на услугу
+			.b-tag(data-parallax="scroll", data-image-src="img/tag2.jpg")
+				p Повышайте эффективность работы
+			section.b-slide.b-slide--4.js-slide#individual
 				.b-slide__wrapper
 					h2 
 						span Услуги
 						| физическим лицам
 					.b-slide__columns
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s1.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l3.svg
 							h3 Имущественные отношения
 							hr
 							p Текст о имущественных отношениях 
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s2.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l2.svg
 							h3 Юридическая поддержка
 							hr
 							p Текст о юридической поддержке
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s3.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l9.svg
 							h3 Управление недвижимостью
 							hr
 							p Текст о управлении недвижимостью
-						.b-slide__item.b-slide__item--half.b-slide__item--activity
-							img(src="img/s4.png", alt="")
+						.b-slide__item.b-slide__item--half.b-slide__item--activity.a-fade
+							include img/l10.svg
 							h3 Строительство и ремонт
 							hr
 							p Текст о строительстве и ремонте
 				.b-slide__footer
 					a.b-button(href="") Заявка на услугу
-				.b-tag
-					img.b-tag__image(src="img/tag3.jpg", alt="")
-			section.b-slide.b-slide--fifth.js-slide(data-section-name="news")
+			.b-tag(data-parallax="scroll", data-image-src="img/tag3.jpg")
+				p Сосредоточьтесь на главном
+			section.b-slide.b-slide--5.js-slide#news
 				.b-slide__wrapper
 					h2 Новости
 					.b-slide__columns
-						.b-slide__item.b-slide__item--half
-							h3 Компания
-							p Спектр - инновационный многопрофильный холдинг.<br> Мы помогаем сотням российских и зарубежных компаний успешно развиваться и повышать эффективность бизнеса, используя мощный арсенал аутсорсинга
-							p Уникальность предложения спектр - в концепции &laquo;всё под рукой&raquo; предприятие-клиент поручает нам выполнение всех или наиболее трудоемких вспомогательных функций, концентрируясь на основных направлениях деятельности
-							p Спектр вы получаете
-							ul
-								li компетентную поддержку лучших специалистов,
-								li новейшую технологическую базу,
-								li дополнительные ресурсы для достижения самых амбициозных
-				.b-tag
-					img.b-tag__image(src="img/tag4.jpg", alt="")
-			section.b-slide.b-slide--sixth.js-slide(data-section-name="contacts")
+						.b-slide__item
+							img(src="img/news1.png", alt="")
+							hr
+							h3 Ситуация с безработицей ухудшается
+							p Как отмечают эксперты , малый и средний бизнес в условиях кризиса все больше перекладывает проблемы кадрового администрирования на плечи профессиональных посредников, стараясь оптимизировать все нестратегические расходы. Технологиями аутстаффинга в реальном секторе экономики пользуется уже около 40% компаний и предприятий, в то время, как годом ранее таковых было 30%.
+						.b-slide__item
+							img(src="img/news2.png", alt="")
+							hr
+							h3 ПРОДУКТОВЫЙ РОСТ – В ПРОЦЕНТАХ И ГРАДУСАХ
+							p «Оценки текущего состояния все еще достаточно негативные, хотя появляются положительные ожидания и надежды на некоторую стабилизацию. Так, доля игроков, предполагающих инвестиции в свои бизнес-проекты, увеличилась на 30 %. Однако ситуация остается очень неустойчивой, и предприятия среднего и малого бизнеса сейчас особенно нуждаются в поддержке со стороны федеральных и региональных органов государственной власти». – Отмечают в ОАК.
+			.b-tag(data-parallax="scroll", data-image-src="img/tag4.jpg")
+				p Мы позаботимся об остальном
+			section.b-slide.b-slide--sixth.js-slide#contacts
 				.b-slide__wrapper
 					h2 Контакты
-					.b-slide__columns
-						.b-slide__item.b-slide__item--half
-							h3 Компания
-							p Спектр - инновационный многопрофильный холдинг.<br> Мы помогаем сотням российских и зарубежных компаний успешно развиваться и повышать эффективность бизнеса, используя мощный арсенал аутсорсинга
-							p Уникальность предложения спектр - в концепции &laquo;всё под рукой&raquo; предприятие-клиент поручает нам выполнение всех или наиболее трудоемких вспомогательных функций, концентрируясь на основных направлениях деятельности
-							p Спектр вы получаете
-							ul
-								li компетентную поддержку лучших специалистов,
-								li новейшую технологическую базу,
-								li дополнительные ресурсы для достижения самых амбициозных
-				.b-tag.b-tag--map.js-map
-		footer.b-page__footer
-			p © 2016 | Все права защищены | Спектр
-		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+					p
+						span.is-blue Адрес: 
+						| Москва, ул. Усачева, д. 35, стр. 1
+					p
+						span.is-blue Телефон: 
+						| +7 (495) 411-99-00
+					p
+						span.is-blue Факс: 
+						| +7 (495) 933-06-56
+					p
+						span.is-blue Адрес: 
+						| mnpo@spektr.ru
+					form.b-slide__columns(action="").b-form
+						.b-slide__item.b-slide__item--half.b-form__item
+							input.b-form__input(type="text", name="lastname", placeholder="Фамилия")
+							input.b-form__input(type="text", name="phone", placeholder="Телефон")
+							input.b-form__input(type="text", name="firstname", placeholder="Почта")
+						.b-slide__item.b-slide__item--half.b-form__item
+							textarea.b-form__textarea(name="message", placeholder="Сообщение")
+						.b-slide__item.b-form__item
+							input.b-button(type="submit", value="Отправить")
+			.b-tag.b-tag--map.js-map
+			footer.b-page__footer
+				p © 2016 | Все права защищены | Спектр
+		script(src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js")
+		script(src="//oss.maxcdn.com/respond/1.4.2/respond.min.js")
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
 		script(src="js/main.js")
 		script(src="https://maps.google.com/maps/api/js?sensor=false&callback=init")
